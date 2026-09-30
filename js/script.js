@@ -32,20 +32,20 @@ const showAnimalButton = document.querySelector("#showAnimalButton");
 const animalContent = document.querySelector("#animalContent");
 const hideAnimalButton = document.querySelector("#hideAnimalButton");
 
-let h3 = document.createElement("h3");
+const h3 = document.createElement("h3");
 h3.textContent = "Päivän Eläin";
 
-let p = document.createElement("p");
+const p = document.createElement("p");
 p.textContent = "Panda";
 
-let image = document.createElement("img");
+const image = document.createElement("img");
 image.src = "images/panda.png"
 image.alt = "Panda Kuva"
 
 showAnimalButton.addEventListener("click", function () {
     animalContent.innerHTML = "";
 
-    animalContent.append(h3, p, image)
+    animalContent.append(h3, p, image);
 
     animalContent.hidden = false;
 });
@@ -115,19 +115,34 @@ changeStyleButton.addEventListener("click", function () {
 });
 
 // Harjoitus 4
-const submit = document.querySelector("#submit");
-
-submit.addEventListener("click", function () {
-    console.log("nappia painettu!");
-});
-
 const animalForm = document.querySelector("#animalForm");
 
-animalForm.addEventListener('submit', (event) => {
+const observationTableBody = document.querySelector("#observationTableBody");
+
+animalForm.addEventListener("submit", (event) => {
     event.preventDefault();
-})
+
+    const observationAnimal = document.getElementById('observationAnimal').value;
+    const observationLocation = document.getElementById('observationLocation').value;
+    const observationDate = document.getElementById('observationDate').value;
+
+    console.log(observationAnimal)
+    console.log(observationLocation)
+    console.log(observationDate)
+
+    const tr = document.createElement("tr");
+
+    const tdanimal = document.createElement("td");
+    tdanimal.textContent = observationAnimal;
+
+    const tdlocation = document.createElement("td");
+    tdlocation.textContent = observationLocation;
+
+    const tddate = document.createElement("td");
+    tddate.textContent = observationDate;
+
+    tr.append(tdanimal, tdlocation, tddate);
+    observationTableBody.append(tr);
+});
 
 
-const observationAnimal = document.getElementById('observationAnimal').value;
-const observationLocation = document.getElementById('observationLocation').value;
-const observationDate = document.getElementById('observationDate').value;
