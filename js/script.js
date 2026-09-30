@@ -4,8 +4,15 @@
 const changeHeadingButton = document.querySelector("#changeHeadingButton");
 const taskOneHeading = document.querySelector("#taskOneHeading");
 
+const changeTextButton = document.querySelector("#changeTextButton");
+const animalText = document.querySelector("#animalText");
+
 changeHeadingButton.addEventListener("click", function () {
     taskOneHeading.textContent = "Muokattu otsikko!";
+});
+
+changeTextButton.addEventListener("click", function () {
+    animalText.textContent = "Muutettu Teksti";
 });
 
 // -------------------------------------------------- EXAMPLE 1 ANIMAL TABLE
@@ -17,11 +24,37 @@ const animalTable = document.querySelector("#animalTable");
 animalButton.addEventListener("click", function () {
     animalTable.hidden = !animalTable.hidden;
     console.log("nappia painettu!");
-
 });
 
-// -------------------------------------------------- EXAMPLE 3 LISTEN DROPDOWN SELECT
-// -------------------------------------------------- EXAMPLE 3 LISTEN DROPDOWN SELECT
+// Tehtävä 2
+
+const showAnimalButton = document.querySelector("#showAnimalButton");
+const animalContent = document.querySelector("#animalContent");
+const hideAnimalButton = document.querySelector("#hideAnimalButton");
+
+let h3 = document.createElement("h3");
+h3.textContent = "Päivän Eläin";
+
+let p = document.createElement("p");
+p.textContent = "Panda";
+
+let image = document.createElement("img");
+image.src = "images/panda.png"
+image.alt = "Panda Kuva"
+
+showAnimalButton.addEventListener("click", function () {
+    animalContent.innerHTML = "";
+
+    animalContent.append(h3, p, image)
+
+    animalContent.hidden = false;
+});
+
+hideAnimalButton.addEventListener("click", function () {
+    animalContent.hidden = true;
+})
+
+// Tehtävä 3
 
 const animalSelect = document.querySelector("#animalSelect");
 const animalName = document.querySelector("#animalName");
@@ -60,6 +93,14 @@ animalSelect.addEventListener("change", function () {
       }
 });
 
+animalImage.addEventListener("mouseenter", function () {
+    animalImage.classList.add("image-highlight");
+});
+
+animalImage.addEventListener("mouseleave", function () {
+    animalImage.classList.remove("image-highlight");
+});
+
 // listener for the select element from the drop down list.
 // function to update the DOM based on the selected animal
 
@@ -72,3 +113,21 @@ const changeStyleButton = document.querySelector("#changeStyleButton");
 changeStyleButton.addEventListener("click", function () {
     heading.classList.toggle("highlight");
 });
+
+// Harjoitus 4
+const submit = document.querySelector("#submit");
+
+submit.addEventListener("click", function () {
+    console.log("nappia painettu!");
+});
+
+const animalForm = document.querySelector("#animalForm");
+
+animalForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+})
+
+
+const observationAnimal = document.getElementById('observationAnimal').value;
+const observationLocation = document.getElementById('observationLocation').value;
+const observationDate = document.getElementById('observationDate').value;
